@@ -1,0 +1,79 @@
+<!-- registro.component.html -->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card shadow-lg border-0 rounded">
+                <div class="card-body p-4">
+                    <div class="text-center ">
+                        <i class="bi bi-person-plus user-icon"></i> <!-- Ícono de registro -->
+                    </div>
+                    <form (ngSubmit)="onSubmit()" class="row g-3">
+                        <div class="col-md-6">
+                            <label for="nombres" class="form-label">Nombres</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                <input type="text" class="form-control" id="nombres" [(ngModel)]="new_usuario.nombres" name="nombres" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="apellidos" class="form-label">Apellidos</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                <input type="text" class="form-control" id="apellidos" [(ngModel)]="new_usuario.apellidos" name="apellidos" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="direccion" class="form-label">Dirección</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-house"></i></span>
+                                <input type="text" class="form-control" id="direccion" [(ngModel)]="new_usuario.direccion" name="direccion" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+                                <input type="date" class="form-control" id="fechaNacimiento" [(ngModel)]="new_usuario.fechaNacimiento" name="fechaNacimiento" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="sexo" class="form-label">Género</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-gender-ambiguous"></i></span>
+                                <select class="form-select" id="sexo" [(ngModel)]="new_usuario.sexo" name="sexo" required>
+                                    <option value="" disabled>Selecciona tu género</option>
+                                    <option value="M">Masculino</option>
+                                    <option value="F">Femenino</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="correo" class="form-label">Correo Electrónico</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                <input type="email" class="form-control" id="correo" [(ngModel)]="new_usuario.correo" name="correo" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                                <input type="password" class="form-control" id="password" [(ngModel)]="new_usuario.password" name="password" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="tipoUsuario" class="form-label">Tipo de Usuario</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-person-badge"></i></span>
+                                <input type="text" class="form-control" id="tipoUsuario" [(ngModel)]="new_usuario.tipoUsuario" name="tipoUsuario" required>
+                            </div>
+                        </div>
+                        <div class="col-12 text-center mt-3">
+                            <button type="submit" class="btn btn-custom w-50">Registrar</button> <!-- Botón ajustado -->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

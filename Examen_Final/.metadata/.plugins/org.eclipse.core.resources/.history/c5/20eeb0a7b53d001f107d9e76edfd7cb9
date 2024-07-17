@@ -1,0 +1,19 @@
+package org.edu.pe.modelo;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "detallepedido")
+@IdClass(InnerjoinDetalle.class)
+public class DetallePedido {
+	@Id
+	private String idPedido;
+	@Id
+	private String idProducto;
+	private int cantidad;
+	private double precioUnidad;
+	private char estado;
+}

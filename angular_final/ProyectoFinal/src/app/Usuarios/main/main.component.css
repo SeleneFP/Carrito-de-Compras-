@@ -1,0 +1,54 @@
+/* main.component.css */
+
+body {
+    background: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+    background: #ffffff;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.form-label {
+    font-weight: bold;
+    color: #333333;
+}
+
+.input-group-text {
+    background-color: #e9ecef;
+    border: none;
+}
+
+.btn-primary {
+    background-color: #50b8f0;
+    border: none;
+    border-radius: 50px;
+}
+
+.btn-primary:hover {
+    background-color: rgba(32, 129, 233, 0.907);
+}
+
+.input-group .form-control {
+    border-left: none;
+}
+
+.input-group .input-group-text {
+    border-right: none;
+    border-radius: 50px 0 0 50px;
+}
+
+.input-group .form-control {
+    border-radius: 0 50px 50px 0;
+}
+
+.user-icon {
+    font-size: 5rem;
+    color: #7395ba;
+}

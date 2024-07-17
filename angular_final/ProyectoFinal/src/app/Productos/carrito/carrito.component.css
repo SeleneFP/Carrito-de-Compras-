@@ -1,0 +1,95 @@
+/* carrito.component.css */
+.table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.table thead th {
+    background-color: #c2e6fa; /* Color de fondo para el encabezado */
+    color: #333; /* Color del texto del encabezado */
+    font-weight: bold;
+    padding: 1rem;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.product-image {
+    max-height: 120px;
+    max-width: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.quantity-input {
+    max-width: 70px;
+    display: inline-block;
+}
+
+.btn-square {
+    background-color: #dc3545; /* Rojo para el botón de eliminar */
+    border: none;
+    color: #fff;
+    border-radius: 5px; /* Cuadrado con bordes redondeados */
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    width: 40px; /* Ancho del botón */
+    height: 40px; /* Alto del botón */
+}
+
+.btn-square:hover {
+    background-color: #c82333;
+}
+
+.btn-custom {
+    background-color: #50b8f0; /* Color del botón de pagar */
+    border: none;
+    color: #fff;
+    border-radius: 30px;
+}
+
+.btn-custom:hover {
+    background-color: rgba(32, 129, 233, 0.8);
+}
+
+.btn-secondary {
+    background-color: #6c757d; /* Color del botón de seguir comprando */
+    border: none;
+    color: #fff;
+    border-radius: 30px;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.btn-lg {
+    padding: 0.75rem 2rem; /* Botones más largos horizontalmente */
+    font-size: 1.1rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.total-amount {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Espacio entre los botones */
+}

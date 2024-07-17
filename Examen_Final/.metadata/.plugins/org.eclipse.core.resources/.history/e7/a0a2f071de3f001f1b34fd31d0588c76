@@ -1,0 +1,14 @@
+package org.edu.pe.modelo;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "productos")
+public class Categoria {
+	@Id
+	private String idCategoria;
+	private String descripcion, imagen;
+	private char estado;
+}

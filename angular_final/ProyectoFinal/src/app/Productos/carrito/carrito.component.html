@@ -1,0 +1,42 @@
+<!-- carrito.component.html -->
+<div class="container">
+  <table class="table table-striped table-bordered">
+    <thead class="thead-custom">
+      <tr>
+        <th>Nombre</th>
+        <th>Imagen</th>
+        <th>Cantidad</th>
+        <th>Monto</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (cesto of Carro ; track cesto.idProducto) {
+        <tr>
+          <td class="text-center">{{ cesto.descripcion }}</td>
+          <td class="text-center">
+            <img class="product-image" [src]="'img/' + cesto.imagen" alt="Imagen del producto">
+          </td>
+          <td class="text-center">
+            <input type="number" [(ngModel)]="cesto.cantidad" (change)="actualizar_Cantidad(cesto)" class="form-control quantity-input" min="1">
+          </td>
+          <td class="text-right">{{ cesto.montototal | currency }}</td>
+          <td class="text-center">
+            <button (click)="eliminar(cesto.idProducto)" class="btn btn-danger btn-square">
+              <i class="bi bi-trash"></i>
+            </button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+  <div class="text-center mt-4">
+    <div class="total-amount mb-3">
+      <strong>Total:</strong> {{ calcularTotal() | currency }}
+    </div>
+    <div class="btn-group">
+      <button (click)="goBack()" class="btn btn-secondary btn-lg">Seguir comprando</button>
+      <button (click)="procederPago()" class="btn btn-custom btn-lg">Pagar</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,90 @@
+package org.edu.pe.controlador;
+
+import java.util.List;
+
+import org.edu.pe.interfaces.IProducto;
+import org.edu.pe.interfaces.IUsuario;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.edu.pe.modelo.*;
+
+@RestController
+@RequestMapping("/api/v1/")
+@CrossOrigin(origins = "http://localhost:4200")
+public class CarritoController {
+	@Autowired
+	private IProducto CrudProducto;
+	private IUsuario CrudUsuario;
+    
+	//listas{
+	
+	@GetMapping("/get_productos")
+	public List<Producto> ListProductos() {
+		return CrudProducto.findAll();
+	};
+	
+	@GetMapping("/get_usuarios")
+	public List<Usuario> ListUsuarios() {
+		return CrudUsuario.findAll();
+	};
+	
+    //}
+	
+	
+	@GetMapping("/get_productos/{id}")
+	public Producto SearchProducto(@PathVariable String id) {
+		return CrudProducto.findById(id).orElseThrow(() -> new RuntimeException("Producto no encontrado con id " + id));
+
+	};
+
+	@DeleteMapping("/get_productos/{id}")
+	public Producto eliminarProducto(@PathVariable String id) {
+		Producto p = CrudProducto.findById(id)
+				.orElseThrow(() -> new RuntimeException("Producto no encontrado con id " + id));
+
+		CrudProducto.delete(p);
+
+		return p;
+
+	};
+
+	@PutMapping("/get_productos/{id}")
+	public Producto actualizarProducto(@PathVariable String id, @RequestBody Producto pd) {
+		Producto p = CrudProducto.findById(id)
+				.orElseThrow(() -> new RuntimeException("Producto no encontrado con id " + id));
+
+		p.setIdProducto(pd.getIdProducto());
+		p.setDescripcion(pd.getDescripcion());
+		p.setImagen(pd.getImagen());
+		p.setStock(pd.getStock());
+		p.setPrecioUnidad(pd.getPrecioUnidad());
+
+		Producto pa = CrudProducto.save(p);
+
+		return pa;
+
+	};
+	
+	//crear-save {
+	
+	@PostMapping("/get_productos")
+	public Producto guardarProducto(@RequestBody Producto p) {
+		return CrudProducto.save(p);
+	};
+	
+	@PostMapping("/create_usuario")
+	public Usuario CreateUsuario(@RequestBody Usuario p) {
+		return CrudUsuario.save(p);
+	};
+	
+	//}
+
+}

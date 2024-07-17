@@ -1,0 +1,5 @@
+package org.edu.pe.modelo;
+
+public class Pedido {
+
+}

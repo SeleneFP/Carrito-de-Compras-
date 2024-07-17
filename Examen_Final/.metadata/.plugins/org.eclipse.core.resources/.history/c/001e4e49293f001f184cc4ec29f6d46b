@@ -1,0 +1,5 @@
+package org.edu.pe.interfaces;
+
+public class IUsuario {
+
+}

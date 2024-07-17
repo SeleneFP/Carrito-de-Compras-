@@ -1,0 +1,18 @@
+/* registro.component.css */
+.user-icon {
+    font-size: 4rem; /* Tamaño grande para el ícono */
+    color: #50b8f0; /* Color del ícono similar al color del botón */
+}
+
+.btn-custom {
+    background-color: #50b8f0; /* Color del botón */
+    border: none;
+    border-radius: 50px;
+    color: #ffffff;
+    margin-top: 4px;
+    font-weight: bold;
+}
+
+.btn-custom:hover {
+    background-color: rgba(32, 129, 233, 0.907); /* Color en hover */
+}

@@ -1,0 +1,49 @@
+ /* Estilos personalizados */
+ .navbar {
+    background-color: #30475e !important; /* Cambiar el color de fondo de la navbar */
+}
+
+.navbar-brand, .nav-link, .navbar-toggler-icon {
+    color: #ffffff !important; /* Cambiar el color del texto de la navbar */
+}
+
+.navbar-brand:hover, .nav-link:hover {
+    color: #448bb1 !important; /* Cambiar el color del texto de la navbar al pasar el ratón */
+}
+
+
+
+.nav-link.active {
+    color: #ffffff !important; /* Cambiar el color del enlace activo */
+}
+
+/* Estilo base para los iconos en la barra de navegación */
+.icon-group .nav-link i {
+    font-size: 1.5rem; /* Tamaño del icono */
+    color: #ffffff; /* Color del icono por defecto */
+    transition: color 0.3s ease; /* Transición suave para el cambio de color */
+}
+
+/* Efecto hover para los iconos */
+.icon-group .nav-link:hover i {
+    color: #448bb1; /* Color del icono al pasar el cursor (puedes cambiarlo según tu preferencia) */
+}
+
+
+
+
+/* Ajustes para iconos en dispositivos móviles */
+.icon-group {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre los iconos */
+}
+
+.icon-group i {
+    font-size: 1.5rem; /* Tamaño de los iconos */
+    color: #ffffff; /* Color de los iconos */
+}
+
+.navbar-toggler-icon {
+    background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"%3E%3Cpath stroke="rgba%28%255%2C%255%2C%255%2C%2E55%29" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
+}

@@ -1,0 +1,81 @@
+/* lista-productos.component.css */
+
+.card {
+    border: none;
+    border-radius: 12px; /* Bordes redondeados para una apariencia más suave */
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animaciones suaves para interacciones */
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Elevación suave al pasar el ratón */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra más prominente al pasar el ratón */
+}
+
+.image-container {
+    display: flex;
+    justify-content: center; /* Centra la imagen horizontalmente */
+    align-items: center; /* Centra la imagen verticalmente */
+    padding: 15px; /* Espacio alrededor de la imagen */
+}
+
+.card-img-top {
+    width: auto; /* Mantiene la proporción de la imagen */
+    max-width: 80%; /* Ajusta el ancho máximo de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+    max-height: 200px; /* Ajusta la altura máxima de la imagen */
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionar */
+    margin: 0 auto; /* Centra la imagen dentro del contenedor */
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-title {
+    font-size: 1.3rem; /* Aumenta el tamaño del título */
+    font-weight: 700; /* Negrita más fuerte para el título */
+    margin-bottom: 1rem; /* Espacio inferior del título */
+    text-align: center; /* Centra el texto del título */
+    border: 2px solid #50b8f0; /* Borde alrededor del título */
+    border-radius: 8px; /* Bordes redondeados del borde */
+    padding: 0.5rem; /* Espacio interno alrededor del título */
+    background-color: #f8f9fa; /* Fondo ligero para el área del título */
+}
+
+.product-details {
+    margin-bottom: 1rem; /* Espacio entre los detalles del producto */
+}
+
+.product-details .card-text {
+    font-size: 0.95rem; /* Tamaño de texto ligeramente mayor para mejor legibilidad */
+    margin-bottom: 0.5rem; /* Espacio entre líneas de texto */
+}
+
+.product-details .text-muted {
+    color: #6c757d; /* Color de texto más sutil */
+}
+
+.product-details .text-success {
+    color: #28a745; /* Color verde para el precio */
+}
+
+.product-details .text-danger {
+    color: #dc3545; /* Color rojo para el stock */
+}
+
+.btn-custom {
+    background-color: #50b8f0; /* Color del botón de añadir al carrito */
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px; /* Padding adicional para un botón más grande */
+    font-size: 1rem; /* Tamaño del texto del botón */
+    font-weight: 600; /* Peso de fuente para el botón */
+    color: #ffffff; /* Color del texto del botón */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Animaciones suaves para interacciones */
+}
+
+.btn-custom:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el ratón */
+    transform: scale(1.05); /* Escala ligera al pasar el ratón */
+}

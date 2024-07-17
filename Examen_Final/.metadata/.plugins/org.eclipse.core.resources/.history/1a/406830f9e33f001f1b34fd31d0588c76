@@ -1,0 +1,284 @@
+package org.edu.pe.controlador;
+
+import java.util.List;
+
+import org.edu.pe.interfaces.ICategoria;
+import org.edu.pe.interfaces.IDetallePedido;
+import org.edu.pe.interfaces.IPedido;
+import org.edu.pe.interfaces.IProducto;
+import org.edu.pe.interfaces.IUsuario;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.edu.pe.modelo.*;
+
+@RestController
+@RequestMapping("/api/v1/")
+@CrossOrigin(origins = "http://localhost:4200")
+public class CarritoController {
+	@Autowired
+	private IProducto CrudProducto;
+	@Autowired
+	private IUsuario CrudUsuario;
+	@Autowired
+	private IPedido CrudPedido;
+	@Autowired
+	private IDetallePedido CrudDetallePedido;
+	@Autowired
+	private ICategoria CrudCategorias;
+    
+	//------------------------------------------------------------------------------------------//
+	//listas{
+	
+	@GetMapping("/get_productos")
+	public List<Producto> ListProductos() {
+		return CrudProducto.findAll();
+	};
+	
+	@GetMapping("/get_usuarios")
+	public List<Usuario> ListUsuarios() {
+		return CrudUsuario.findAll();
+	};
+	
+	@GetMapping("/get_pedidos")
+	public List<Pedido> ListPedidos() {
+		return CrudPedido.findAll();
+	};
+	
+	@GetMapping("/get_detallePedidos")
+	public List<DetallePedido> ListDetallePedido() {
+		return CrudDetallePedido.findAll();
+	};
+	
+	@GetMapping("/get_categorias")
+	public List<Categoria> ListCategorias() {
+		return CrudCategorias.findAll();
+	};
+	
+    //}
+	//------------------------------------------------------------------------------------------//
+	//buscar{
+	
+	@GetMapping("/get_productos/{id}")
+	public Producto SearchProducto(@PathVariable String id) {
+		return CrudProducto.findById(id).orElseThrow(() -> new RuntimeException("Producto no encontrado con id " + id));
+	};
+	
+	@GetMapping("/get_usuarios/{id}")
+	public Usuario BuscarUsuario(@PathVariable int id) {
+		return CrudUsuario.findById(id).orElseThrow(() -> new RuntimeException("Usuario no encontrado con id " + id));
+	};
+	
+	@GetMapping("/get_pedidos/{id}")
+	public Pedido BuscarPedido(@PathVariable String id) {
+		return CrudPedido.findById(id).orElseThrow(() -> new RuntimeException("Pedido no encontrado con id " + id));
+	};
+	
+	@GetMapping("/get_detallePedidos/{id}")
+	public DetallePedido BuscarDetallePedido(@PathVariable InnerjoinDetalle id) {
+		return CrudDetallePedido.findById(id).orElseThrow(() -> new RuntimeException("Detalle no encontrado con id " + id));
+	};
+	
+	@GetMapping("/get_categorias/{id}")
+	public Categoria BuscarCategoria(@PathVariable int id) {
+		return CrudCategorias.findById(id).orElseThrow(() -> new RuntimeException("Categoria no encontrado con id " + id));
+	};
+		
+	//}
+	//------------------------------------------------------------------------------------------//
+	
+    //Eliminar{
+	@DeleteMapping("/get_productos/{id}")
+	public Producto eliminarProducto(@PathVariable String id) {
+		Producto p = CrudProducto.findById(id)
+				.orElseThrow(() -> new RuntimeException("Producto no encontrado con id " + id));
+
+		CrudProducto.delete(p);
+
+		return p;
+
+	};
+	
+	@DeleteMapping("/get_usuarios/{id}")
+	public Usuario eliminarUsuario(@PathVariable int id) {
+		Usuario p = CrudUsuario.findById(id)
+				.orElseThrow(() -> new RuntimeException("Usuario no encontrado con id " + id));
+
+		CrudUsuario.delete(p);
+
+		return p;
+
+	};
+	
+	@DeleteMapping("/get_pedidos/{id}")
+	public Pedido eliminarPedido(@PathVariable String id) {
+		Pedido p = CrudPedido.findById(id)
+				.orElseThrow(() -> new RuntimeException("Pedido no encontrado con id " + id));
+
+		CrudPedido.delete(p);
+
+		return p;
+
+	};
+	
+	@DeleteMapping("/get_detallePedidos/{id}")
+	public DetallePedido eliminarDetallePedido(@PathVariable InnerjoinDetalle id) {
+		DetallePedido p = CrudDetallePedido.findById(id)
+				.orElseThrow(() -> new RuntimeException("Detalle no encontrado con id " + id));
+
+		CrudDetallePedido.delete(p);
+
+		return p;
+
+	};
+	
+	@DeleteMapping("/get_categorias/{id}")
+	public Categoria eliminarCategorias(@PathVariable int id) {
+		Categoria p = CrudCategorias.findById(id)
+				.orElseThrow(() -> new RuntimeException("Categoria no encontrado con id " + id));
+
+		CrudCategorias.delete(p);
+
+		return p;
+
+	};
+	
+	//}
+	//------------------------------------------------------------------------------------------//
+	
+	//Actualizar{
+	
+	@PutMapping("/get_productos/{id}")
+	public Producto actualizarProducto(@PathVariable String id, @RequestBody Producto pd) {
+		Producto p = CrudProducto.findById(id)
+				.orElseThrow(() -> new RuntimeException("Producto no encontrado con id " + id));
+
+		p.setIdProducto(pd.getIdProducto());
+		p.setDescripcion(pd.getDescripcion());
+		p.setImagen(pd.getImagen());
+		p.setStock(pd.getStock());
+		p.setPrecioUnidad(pd.getPrecioUnidad());
+
+		Producto pa = CrudProducto.save(p);
+
+		return pa;
+
+	};
+	
+	@PutMapping("/get_usuarios/{id}")
+	public Usuario actualizarUsuario(@PathVariable int id, @RequestBody Usuario pd) {
+		Usuario p = CrudUsuario.findById(id)
+				.orElseThrow(() -> new RuntimeException("Usuario no encontrado con id " + id));
+
+		p.setIdUsuario(pd.getIdUsuario());
+		p.setNombres(pd.getNombres());
+		p.setApellidos(pd.getApellidos());
+		p.setDireccion(pd.getDireccion());
+		p.setDireccion(pd.getDireccion());
+		p.setCorreo(pd.getCorreo());
+		p.setFechaNacimimiento(pd.getFechaNacimimiento());
+		p.setSexo(pd.getSexo());
+		p.setTipoUsuario(pd.getTipoUsuario());
+
+		Usuario pa = CrudUsuario.save(p);
+
+		return pa;
+
+	};
+	
+
+	@PutMapping("/get_pedidos/{id}")
+	public Usuario actualizarPedido(@PathVariable int id, @RequestBody Usuario pd) {
+		Usuario p = CrudUsuario.findById(id)
+				.orElseThrow(() -> new RuntimeException("Usuario no encontrado con id " + id));
+
+		p.setIdUsuario(pd.getIdUsuario());
+		p.setNombres(pd.getNombres());
+		p.setApellidos(pd.getApellidos());
+		p.setDireccion(pd.getDireccion());
+		p.setDireccion(pd.getDireccion());
+		p.setCorreo(pd.getCorreo());
+		p.setFechaNacimimiento(pd.getFechaNacimimiento());
+		p.setSexo(pd.getSexo());
+		p.setTipoUsuario(pd.getTipoUsuario());
+
+		Usuario pa = CrudUsuario.save(p);
+
+		return pa;
+
+	};
+	
+	
+	@PutMapping("/get_detallePedidos/{id}")
+	public DetallePedido actualizarDetallePedido(@PathVariable InnerjoinDetalle id, @RequestBody DetallePedido pd) {
+		DetallePedido p = CrudDetallePedido.findById(id)
+				.orElseThrow(() -> new RuntimeException("Usuario no encontrado con id " + id));
+
+		p.setIdPedido(pd.getIdPedido());
+		p.setCantidad(pd.getCantidad());
+		p.setEstado(pd.getEstado());
+		p.setIdProducto(pd.getIdProducto());
+		p.setPrecioUnidad(pd.getPrecioUnidad());
+
+		DetallePedido pa = CrudDetallePedido.save(p);
+
+		return pa;
+
+	};
+	
+	@PutMapping("/get_categorias/{id}")
+	public Categoria actualizarCategoria(@PathVariable int id, @RequestBody Categoria pd) {
+		Categoria p = CrudCategorias.findById(id)
+				.orElseThrow(() -> new RuntimeException("Usuario no encontrado con id " + id));
+
+		p.setIdCategoria(pd.getIdCategoria());
+		p.setDescripcion(pd.getDescripcion());
+		p.setImagen(pd.getImagen());
+
+		Categoria pa = CrudCategorias.save(p);
+
+		return pa;
+
+	};
+	
+	//}
+	
+	//------------------------------------------------------------------------------------------//
+	//crear-save {
+	
+	@PostMapping("/get_productos")
+	public Producto guardarProducto(@RequestBody Producto p) {
+		return CrudProducto.save(p);
+	};
+	
+	@PostMapping("/get_usuarios")		
+	public Usuario CreateUsuario(@RequestBody Usuario p) {
+		return CrudUsuario.save(p);
+	};
+	
+	@PostMapping("/get_pedidos")		
+	public Pedido CreatePedido(@RequestBody Pedido p) {
+		return CrudPedido.save(p);
+	};
+	
+	@PostMapping("/get_detallePedidos")		
+	public DetallePedido CreateDetallePedido(@RequestBody DetallePedido p) {
+		return CrudDetallePedido.save(p);
+	};
+	
+	@PostMapping("/get_categorias")		
+	public Categoria CreateCategoria(@RequestBody Categoria p) {
+		return CrudCategorias.save(p);
+	};
+	
+	//}
+	//------------------------------------------------------------------------------------------//
+
+}

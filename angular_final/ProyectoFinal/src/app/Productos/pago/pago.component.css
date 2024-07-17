@@ -1,0 +1,123 @@
+/* confirmacion-compra.component.css */
+.table-container {
+    overflow-x: auto; /* Permite el desplazamiento horizontal si la tabla es demasiado ancha */
+    margin-bottom: 2rem; /* Espacio debajo de la tabla */
+}
+
+.table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.table thead th {
+    background-color: #c2e6fa; /* Color de fondo para el encabezado */
+    color: #333; /* Color del texto del encabezado */
+    font-weight: bold;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.product-image {
+    max-height: 150px;
+    max-width: 120px;
+    object-fit: cover;
+    border-radius: 8px; /* Bordes redondeados para las imágenes */
+}
+
+.btn-custom {
+    background-color: #50b8f0; /* Color del botón */
+    border: none;
+    color: #fff;
+    border-radius: 50px;
+    padding: 0.75rem 2rem; /* Botón más largo horizontalmente */
+}
+
+.btn-custom:hover {
+    background-color: rgba(32, 129, 233, 0.907);
+}
+
+.btn-secondary {
+    background-color: #6c757d; /* Color del botón de volver */
+    border: none;
+    color: #fff;
+    border-radius: 50px;
+    padding: 0.75rem 2rem; /* Botón más largo horizontalmente */
+}
+
+.btn-secondary:hover {
+    background-color: rgba(108, 117, 125, 0.8);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.form-group {
+    margin-bottom: 1.5rem; /* Mayor espacio debajo de cada grupo de formulario */
+    border: 1px solid #ddd; /* Borde alrededor del grupo del formulario */
+    padding: 1rem; /* Espacio dentro del borde */
+    border-radius: 8px; /* Bordes redondeados */
+    background-color: #f9f9f9; /* Color de fondo para el grupo */
+}
+
+.form-group label {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem; /* Espacio debajo del label */
+}
+
+.form-group input {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.form-control:focus {
+    border-color: #50b8f0;
+    box-shadow: 0 0 0 0.2rem rgba(80, 184, 255, 0.25);
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem; /* Espacio entre columnas del formulario */
+}
+
+.bi {
+    margin-right: 0.5rem;
+}
+
+.payment-form {
+    max-width: 1000px; /* Ancho máximo del formulario */
+    width: 100%;
+    margin: 0 auto; /* Centra el formulario */
+    padding: 2rem; /* Espacio dentro del formulario */
+    border: 1px solid #ddd; /* Borde alrededor del formulario */
+    border-radius: 8px; /* Bordes redondeados */
+    background-color: #fff; /* Color de fondo para el formulario */
+}
+
+@media (max-width: 767px) {
+    .form-row {
+        flex-direction: column;
+    }
+    
+    .form-group {
+        width: 100%;
+    }
+}

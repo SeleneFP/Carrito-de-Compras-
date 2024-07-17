@@ -1,0 +1,61 @@
+<!-- confirmacion-compra.component.html -->
+<div class="container">
+  <div class="d-flex flex-column align-items-center mb-4">
+    <h4 class="text-center mb-4">Información de Pago</h4>
+    <form class="payment-form">
+      <div class="form-group">
+        <label for="cardNumber">
+          <i class="bi bi-credit-card"></i> Número de Tarjeta
+        </label>
+        <input type="text" id="cardNumber" class="form-control" placeholder="1234 5678 1234 5678" required>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="cardName">
+            <i class="bi bi-person"></i> Nombre del Titular
+          </label>
+          <input type="text" id="cardName" class="form-control" placeholder="Nombre del titular" required>
+        </div>
+        <div class="form-group col-md-3">
+          <label for="expiryDate">
+            <i class="bi bi-calendar"></i> Fecha de Expiración
+          </label>
+          <input type="text" id="expiryDate" class="form-control" placeholder="MM/AA" required>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="cvv">
+            <i class="bi bi-lock"></i> CVV
+          </label>
+          <input type="text" id="cvv" class="form-control" placeholder="123" required>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="table-container mb-5">
+    <table class="table table-striped table-bordered">
+      <thead class="thead-light">
+        <tr>
+          <th>Nombre</th>
+          <th>Imagen</th>
+          <th>Cantidad</th>
+          <th>Monto</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (cesto of Carro ; track cesto.idProducto) {
+          <tr>
+            <td>{{ cesto.descripcion }}</td>
+            <td class="text-center">
+              <img class="product-image" [src]="'img/' + cesto.imagen" alt="Imagen del producto">
+            </td>
+            <td class="text-center">{{ cesto.cantidad }}</td>
+            <td class="text-right">{{ cesto.montototal | currency }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  <div class="d-flex flex-column align-items-center">
+    <button (click)="pagar()" class="btn btn-custom btn-lg mb-5">Confirmar Compra</button>
+  </div>
+</div>
